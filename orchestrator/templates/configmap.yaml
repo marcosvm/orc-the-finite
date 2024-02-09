@@ -8,7 +8,8 @@ data:
 {{- if .Values.raft.enabled }}
        "RaftEnabled": true,
        "RaftDataDir": "/data/orchestrator",
-       "RaftBind": "__RAFTBIND__",
+       "RaftAdvertise": "__FQDN__:10008",
+       "RaftBind": "__FQDN__",
        "DefaultRaftPort": 10008,
        "RaftNodes": [
 {{- include "raft.nodes" . | trimSuffix "," | indent 7 }}
