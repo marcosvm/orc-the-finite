@@ -151,7 +151,7 @@ cat <<EOF > /etc/orchestrator/orchestrator.conf.json
 EOF
 fi
 FQDN=$(/usr/bin/hostname -A)
-sed -i -e "%s@__FQDN__@${FQDN}@g" /etc/orchestrator/orchestrator.conf.json
+sed -i -e "s@__FQDN__@${FQDN}@g" /etc/orchestrator/orchestrator.conf.json
 exec /usr/local/bin/orchestrator -config /etc/orchestrator/orchestrator.conf.json http
 EOML
 
