@@ -149,8 +149,10 @@ cat <<EOF > /etc/orchestrator/orchestrator.conf.json
   "ConsulAclToken": ""
 }
 EOF
+exec /usr/local/bin/orchestrator -config /data/orchestrator/config/orchestrator.conf.json http
+else
+exec /usr/local/bin/orchestrator -config /data/orchestrator/config/orchestrator.conf.json http
 fi
-exec /usr/local/bin/orchestrator -config /etc/orchestrator/orchestrator.conf.json http
 EOML
 
 WORKDIR /data/orchestrator
