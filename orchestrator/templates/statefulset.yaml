@@ -62,9 +62,9 @@ spec:
             - sh
             - -c
             - |
-              RAFTBIND=$(hostname -f)
+              FQDN=$(hostname -f)
               cp /etc/orchestrator/orchestrator.conf.json /data/orchestrator/config/orchestrator.conf.json
-              sed -i -E "s@__RAFTBIND__@${RAFTBIND}@g" /data/orchestrator/config/orchestrator.conf.json
+              sed -i -E "s@__FQDN__@${FQDN}@g" /data/orchestrator/config/orchestrator.conf.json
           {{- with .Values.volumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
